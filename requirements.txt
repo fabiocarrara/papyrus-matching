@@ -1,0 +1,6 @@
+jupyter
+pandas
+pytorch-lightning
+scikit-image
+seaborn
+torchmetrics
