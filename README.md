@@ -11,7 +11,7 @@ pip install git+https://github.com/fabiocarrara/papyrus-matching.git
 from skiamge.io import imread
 from papyrus_matching import FragmentMatcher
 
-# fragments must be RGBA, i.e., np.array with shape (H,W,4)
+# fragments must be RGBA, i.e., (H,W,4)-shaped uint8 np.array with values in [0, 255]
 fragL = imread('left_fragment.png')
 fragR = imread('right_fragment.png')
 
