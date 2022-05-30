@@ -15,15 +15,6 @@ setup(
     author="Fabio Carrara",
     author_email="fabio.carrara@isti.cnr.it",
     license="MIT",
-    # classifiers=[
-    #     "License :: OSI Approved :: MIT License",
-    #     "Programming Language :: Python :: 3",
-    #     "Programming Language :: Python :: 3.7",
-    #     "Programming Language :: Python :: 3.8",
-    # ],
     packages=["papyrus_matching"],
-    include_package_data=True,
-    
-    # Only do this last part if your package contains third-party python packages
-    install_requires=["torch==1.11.0, torchvision==0.12.0"],
+    install_requires=["torch==1.11.0", "torchvision==0.12.0"],
 )

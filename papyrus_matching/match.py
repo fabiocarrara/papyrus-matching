@@ -1,14 +1,20 @@
 import numpy as np
+
 import torch
 import torch.nn.functional as F
 from torchvision import transforms
+
+
+MODELS={
+    'patch-encoder.pth': 'https://github.com/fabiocarrara/papyrus-matching/releases/download/v0.1.0/patch-encoder.pth',
+}
 
 
 class FragmentMatcher(object):
     """Matches two fragments."""
     def __init__(
         self,
-        model_path='patch-encoder.pth',
+        model='patch-encoder.pth',
         device='cpu',
         patch_size=64,
         stride=32,
@@ -24,6 +30,10 @@ class FragmentMatcher(object):
             transforms.ToTensor(),
             transforms.Normalize([0.5, 0.5, 0.5, 0.5], [0.5, 0.5, 0.5, 0.5]),  # RGBA
         ])
+
+        model_path = Path(model)
+        if not model_path.exists():
+            torch.hub.download_url_to_file(MODELS[model], model_path)
 
         self.encoder = torch.load(model_path).eval().to(self.device)
 
